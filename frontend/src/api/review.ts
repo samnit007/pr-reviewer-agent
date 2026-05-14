@@ -1,6 +1,6 @@
 import type { StartResponse, DecideResponse } from '../types'
 
-const BASE = import.meta.env.VITE_API_BASE ?? '/api'
+const BASE = '/api'
 
 export async function startReview(prUrl: string): Promise<StartResponse> {
   const res = await fetch(`${BASE}/review/start`, {
