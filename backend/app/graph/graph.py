@@ -58,8 +58,8 @@ def build_graph():
     builder.add_edge("check_logic", "check_tests")
     builder.add_edge("check_tests", "draft_review")
 
-    # Human-in-the-loop interrupt before posting
-    builder.add_edge("draft_review", END)
+    # Human-in-the-loop: interrupt after draft_review, resume into human_router
+    builder.add_edge("draft_review", "human_router")
 
     # After human decision
     builder.add_node("human_router", lambda s: s)  # pass-through

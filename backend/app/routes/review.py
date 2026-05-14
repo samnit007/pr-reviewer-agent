@@ -57,7 +57,7 @@ def decide(req: DecisionRequest):
         "human_decision": req.decision,
         "human_feedback": req.feedback,
     }
-    graph.update_state(_config(req.run_id), state_update, as_node="human_router")
+    graph.update_state(_config(req.run_id), state_update)
     result = graph.invoke(None, config=_config(req.run_id))
 
     return {
